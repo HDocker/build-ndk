@@ -1,8 +1,9 @@
-FROM    centos 
+FROM    centos
 LABEL      maintainer="Xiayu.Li"
 
 RUN yum install wget -y
 RUN yum install unzip -y
+RUN yum install perl -y
 
 WORKDIR /home
 RUN wget https://dl.google.com/android/repository/android-ndk-r18b-linux-x86_64.zip
