@@ -1,0 +1,120 @@
+    1  cd /home/
+    2  ./setup.sh 
+    3  ll
+    4  ./android-ndk-r18b/build/tools/make-standalone-toolchain.sh --help
+    5  ./android-ndk-r18b/build/tools/make-standalone-toolchain.sh --arch arm --api 19 
+    6  ./android-ndk-r18b/build/tools/make-standalone-toolchain.sh --arch=arm --platform=19
+    7  ll
+    8  ls /tmp/ndk-/
+    9  ls /tmp/ndk-/tmp/
+   10  ./android-ndk-r18b/build/tools/make-standalone-toolchain.sh --arch=arm --platform=19 --install-dir=.
+   11  ./android-ndk-r18b/build/tools/make-standalone-toolchain.sh --arch=arm --platform=19 --install-dir=/home/standalone-toolchain
+   12  ll
+   13  ll standalone-toolchain/
+   14  ll
+   15  mkdir ssl
+   16  mv android-ndk-r10e openssl-1.0.2r ssl
+   17  cd ssl
+   18  ll
+   19  ll ..
+   20  ll
+   21  ll ..
+   22  mv ../Setenv-android.sh .
+   23  ll
+   24  ll ..
+   25  ll
+   26  . ./Setenv-android.sh 
+   27  cd openssl-1.0.2r/
+   28  perl -pi -e 's/install: all install_docs install_sw/install: install_docs install_sw/g' Makefile.org
+   29  ./config shared no-ssl2 no-ssl3 no-comp no-hw no-engine      --openssldir=/usr/local/ssl --prefix=/usr/local/ssl
+   30  make depend
+   31  make all
+   32  make install CC=$ANDROID_TOOLCHAIN/arm-linux-androideabi-gcc RANLIB=$ANDROID_TOOLCHAIN/arm-linux-androideabi-ranlib
+   33  ll /usr/local/ssl/
+   34  cd ..
+   35  cd ..
+   36  ll
+   37  cd poco-poco-1.9.0-release
+   38  ll
+   39  export PATH=$PATH:/home/standalone-toolchain/bin
+   40  ./configure --help
+   41  ./configure --config=Android --no-samples --no-tests --unbundled
+   42  make -j8
+   43  ./configure --config=Android --no-samples --no-tests --minimal
+   44  make -j8
+   45  make -j8 -s
+   46  make clean
+   47  ll
+   48  echo $PATH
+   49  ll /home/standalone-toolchain/bin/
+   50  ./configure --config=Android --no-samples --no-tests --minimal
+   51  make -j8 -s
+   52  find cstddef ../standalone-toolchain/
+   53  find  ../standalone-toolchain/ -name cstddef
+   54  ll
+   55  grep SYSROOT .-r
+   56  grep SYSROOT . -r
+   57  make
+   58  cd ..
+   59  ll
+   60  rm standalone-toolchain/ -rf
+   61  ./android-ndk-r10e/build/tools/make-standalone-toolchain.sh --arch=arm --platform=19 --install-dir=/home/standalone-chain
+   62  ./ssl/android-ndk-r10e/build/tools/make-standalone-toolchain.sh --arch=arm --platform=19 --install-dir=/home/standalone-chain
+   63  ./ssl/android-ndk-r10e/build/tools/make-standalone-toolchain.sh --help
+   64  ./ssl/android-ndk-r10e/build/tools/make-standalone-toolchain.sh --arch=arm --playform=android-19 --install-dir=/home/standalone-toolchain
+   65  ./ssl/android-ndk-r10e/build/tools/make-standalone-toolchain.sh --arch=arm --platform=android-19 --install-dir=/home/standalone-toolchain
+   66  ./ssl/android-ndk-r10e/build/tools/make-standalone-toolchain.sh --arch=arm --platform=android-19 --system=linux-x86_64 --install-dir=/home/standalone-toolchain
+   67  ll
+   68  ll standalone-toolchain/
+   69  echo $PATH
+   70  ll standalone-toolchain/bin
+   71  ll
+   72  cd poco-poco-1.9.0-release
+   73  ll
+   74  ./configure --config=Android --no-samples --no-tests --minimal
+   75  make -j8 -s
+   76  ll
+   77  ll
+   78  ll /usr/local/
+   79  ll /usr/local/include/
+   80  cp -r /home/standalone-toolchain/include/ /usr/local/include/
+   81  ll /usr/local/include/
+   82  mv /usr/local/include/include/* /usr/local/include/
+   83  rm /usr/local/include/include/ -rf
+   84  ll
+   85  ./configure 
+   86  ./configure --help
+   87  ./configure --config=Android --no-samples --no-tests --unbundled 
+   88  make -j8
+   89  find /usr/local/include/c++/4.8/cstddef 
+   90  echo $cc
+   91  echo $CC
+   92  vim M
+   93  ll
+   94  cat Makefile 
+   95  grep sysroot . -r
+   96  vim build/config/Android 
+   97  ll
+   98  ll ../standalone-toolchain/
+   99  ll ../standalone-toolchain/sysroot/
+  100  ll ../standalone-toolchain/sysroot/usr/
+  101  ll ../standalone-toolchain/sysroot
+  102  ll ../standalone-toolchain/sysroot/usr/include/
+  103  ./configure --config=Android --no-samples --no-tests --unbundled 
+  104  make
+  105  make |grep sys
+  106  make |grep sysroot
+  107  ll ../standalone-toolchain/
+  108  ll ../standalone-toolchain/include/
+  109  ll ../standalone-toolchain/include/c++/4.8/
+  110  find ../ssl/android-ndk-r10e/ -name cstddef
+  111  ll /home/standalone-toolchain/include/
+  112  ll /home/standalone-toolchain/include/c++/
+  113  ll /home/standalone-toolchain/include/c++/4.8/
+  114  ./configure --config=Android --no-samples --no-tests --unbundled 
+  115  make
+  116  ./configure --config=Android --no-samples --no-tests --unbundled 
+  117  make
+  118  ll ../standalone-toolchain/include/c++/4.8/
+  119  make
+  120  history > ../his

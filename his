@@ -1,0 +1,84 @@
+    2  cd ssl/
+    3  cd ..
+    4  ll
+    5  cd ssl/
+    6  ll
+    7  . ./Setenv-android.sh 
+    8  ll
+    9  mv Setenv-android.sh ..
+   10  ll
+   11  cd ..
+   12  ll
+   13  . ./Setenv-android.sh 
+   14  cd ssl/
+   15  ll
+   16  tar -xzvf openssl-1.0.2r.tar.gz 
+   17  ll
+   18  mv openssl-1.0.2r ..
+   19  cd ..
+   20  ll
+   21  cd openssl-1.0.2r/
+   22  perl -pi -e 's/install: all install_docs install_sw/install: install_docs install_sw/g' Makefile.org
+   23  yum install perl
+   24  ll
+   25  perl -pi -e 's/install: all install_docs install_sw/install: install_docs install_sw/g' Makefile.org
+   26  ./config shared no-ssl2 no-ssl3 no-comp no-hw no-engine      --openssldir=/usr/local/ssl/$ANDROID_API --prefix=/usr/local/ssl/$ANDROID_API
+   27  yum install make makedepend
+   28  ./config shared no-ssl2 no-ssl3 no-comp no-hw no-engine      --openssldir=/usr/local/ssl/$ANDROID_API --prefix=/usr/local/ssl/$ANDROID_API
+   29  make depend
+   30  make all
+   31  make install
+   32  ll
+   33  ll -t
+   34  ls /usr/local/
+   35  ls /usr/local/ssl/
+   36  ls /usr/local/ssl/android-21/
+   37  ls /usr/local/ssl/android-21/bin/
+   38  ls /usr/local/ssl/android-21/lib
+   39  ls /usr/local/ssl/android-21/lib -t
+   40  ls /usr/local/ssl/android-21/lib -l
+   41  tre /usr/local/ssl/android-21/lib 
+   42  tree /usr/local/ssl/android-21/lib 
+   43  ls /usr/local/ssl/android-21/lib/engines/ -l
+   44  ls /usr/local/ssl/android-21/lib/pkgconfig/ -l
+   45  cat /usr/local/ssl/android-21/lib/pkgconfig/libssl.pc 
+   46  ll
+   47  ll /home/android-ndk-r10e/
+   48  ll /home/android-ndk-r10e/platforms/
+   49  ll /home/android-ndk-r10e/platforms/android-21/
+   50  ll /home/android-ndk-r10e/platforms/android-21/arch-arm
+   51  ll /home/android-ndk-r10e/platforms/android-21/arch-arm/usr/
+   52  ll /home/android-ndk-r10e/platforms/android-21/arch-arm/usr/lib
+   53  ll /home/android-ndk-r10e/
+   54  ll /home/android-ndk-r10e/platforms/
+   55  ll
+   56  ll /home/android-ndk-r10e/platforms/android-21/arch-arm/usr/lib
+   57  ll /home/android-ndk-r10e/platforms/android-21/arch-arm
+   58  ll /home/android-ndk-r10e/platforms/android-21/arch-arm/usr/
+   59  ll /home/android-ndk-r10e/platforms/android-21/arch-arm/usr/lib/
+   60  ls /usr/local/ssl/android-21/
+   61  ls /usr/local/ssl/android-21/
+   62  ls /usr/local/ssl/android-21/
+   63  ll
+   64  cd ..
+   65  ll
+   66  ll ssl/
+   67  ll
+   68  df -h
+   69  df -h
+   70  sudo -E make install CC=$ANDROID_TOOLCHAIN/arm-linux-androideabi-gcc RANLIB=$ANDROID_TOOLCHAIN/arm-linux-androideabi-ranlib
+   71  cd openssl-1.0.2r/
+   72  sudo -E make install CC=$ANDROID_TOOLCHAIN/arm-linux-androideabi-gcc RANLIB=$ANDROID_TOOLCHAIN/arm-linux-androideabi-ranlib
+   73  make install CC=$ANDROID_TOOLCHAIN/arm-linux-androideabi-gcc RANLIB=$ANDROID_TOOLCHAIN/arm-linux-androideabi-ranlib
+   74  ll
+   75  ll /usr/local/
+   76  ll /usr/local/lib
+   77  ll /usr/local/ssl
+   78  ll /usr/local/ssl/android-21/
+   79  ll /usr/local/ssl/android-21/include/
+   80  history |grep yum
+   81  history
+   82  pwd
+   83  ll
+   84  history > his
+
