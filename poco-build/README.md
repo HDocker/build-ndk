@@ -17,6 +17,9 @@ $ ./install.sh
 $ ./build-ssl.sh
 $ ./build-poco.sh
 
+## issue
+由于android ndk不支持版本后缀，需要修改poco和ssl的build规则
+
 ## todo
 https://stackoverflow.com/questions/55151574/building-poco-c-libraries-with-conan-profiles-for-android
 
